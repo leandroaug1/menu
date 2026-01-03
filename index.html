@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-body: #f4f7fa;
+            --white: #ffffff;
+            --primary-blue: #002e6b;
+            --text-gray: #6b7280;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, sans-serif;
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 20px;
+            color: var(--primary-blue);
+            display: flex;
+            justify-content: center;
+        }
+
+        .container { width: 100%; max-width: 500px; }
+        .header { font-size: 24px; margin-bottom: 25px; text-align: center; }
+
+        .info-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 8px solid var(--primary-blue);
+        }
+
+        .info-card h2 { margin: 0; font-size: 20px; font-weight: 700; }
+        .info-card p { margin: 5px 0 0; font-size: 13px; color: var(--text-gray); }
+
+        .temp-display { text-align: right; }
+        .temp-val { font-size: 38px; font-weight: 800; display: block; }
+        .temp-desc { font-size: 11px; font-weight: 700; color: #5c6bc0; text-transform: uppercase; }
+
+        .menu-grid {
+            background-color: var(--white);
+            border-radius: 25px;
+            padding: 35px 15px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+        }
+
+        .btn-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .circle {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            background: transparent;
+        }
+
+        .circle i { color: var(--primary-blue); font-size: 22px; }
+        .btn-item:hover { transform: translateY(-3px); }
+        .label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1.2;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">Olá bem vindo, <strong>Leandro!</strong></div>
+
+    <div class="info-card">
+        <div>
+            <h2>Sumaré, SP</h2>
+            <p><?= date ?></p>
+        </div>
+        <div class="temp-display">
+            <span class="temp-val"><?= temp ?></span>
+            <span class="temp-desc"><i class="fas <?= icon ?>"></i> <?= description ?></span>
+        </div>
+    </div>
+
+    <div class="menu-grid">
+        <a href="https://script.google.com/macros/s/AKfycbw2PGSjTBYJuJdX2lUPso6cfELy2pr0kq5kfvhzKL1suMNOyummt4uXdLNqfuwop936/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-calculator"></i></div><span class="label">Cálculo de Compras</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbz0MkBoAOphZwLYIJ2zx9XpjLWSnWfA9mMAuvKC-ihIq1L00O_WyQW7eqmmo-ZNJNX9FQ/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-bullseye"></i></div><span class="label">Metas Financ.</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbwwIZj45K9sU-PkidE89gtdy3HwK08biEHdjY19GBuM5_XAwlTSFwsI9_qTme1egSk7/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-calendar-alt"></i></div><span class="label">Agenda</span>
+        </a>
+        <a href="https://leandroaug1.github.io/ct70/" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-rocket"></i></div><span class="label">CT70</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbx7PnWH15l8Fo61D-n-5s05_tWBbFtiumq8l657_Wv3s9OSOl04QViOm1H3fj5PqKspQw/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-university"></i></div><span class="label">ERP Financeiro</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbxmJY0XISVDZzeXAkItDRGFA1-q6Y2uj7T8RIad3ZnyXlzq2nANGpnnSeNTyYFgs4k/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-clock"></i></div><span class="label">Horas Extras</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbz8YK_2dVr6QYJah08HxBN3PPMI_mEC-wSSdbhPEJ_ILR7smbcFlfSLJzTqTcaiCfrRaQ/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-car"></i></div><span class="label">KM</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbxUpBC3PeDif4nR8ZgiTbJUIEctlORpqNsuXkF-gRlOmc1Fa45xKhQIy_5G0hUmCGiQ7Q/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-tools"></i></div><span class="label">OS</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbx87qzMI2Uly6QrsVRdQ2m3cxBHIopTMBvLw1d1ElFe4UeibcrMW7AQ4RmQSihj3lrEuQ/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-columns"></i></div><span class="label">Pilares</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbyAml9m-H3tspGd9ZyQhCclWtDHLDpN4KSnWxXbv_mR4J1hu59NWYCmtOkCc6wZjFsf/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-list-check"></i></div><span class="label">Lista de Compras</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbxPt7e1-UsdwSHSiKuaePVVva_mevitTIj3sbSC9lUHqByFlBslWLHIHrvjDrIqnoOKZw/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-chart-line"></i></div><span class="label">Indicador Metas</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbyUJIOqMVZ88it4KnGXwf7JtJAMXLz30TR2qGHrpnxMseENmhUO7j9FzBq4BscSaD_BCg/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-tachometer-alt"></i></div><span class="label">Indicador CT70</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbw-M8DKCPjeUlIHe5_tsPnBjT7cNuy3iTWYYZ1IuXM250iT0CL7GlhtklfCrXEq7X54Jg/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-tshirt"></i></div><span class="label">Looks</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbwRl321x3GbA01xv89Dn2GcAO6hB5xOKnu24E-oxippwoU_3FLGhKpjcgAXO1tnRR4o/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-home"></i></div><span class="label">Casa</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbzJqbc9_QW9vjxH2RHW-ZEdpOv_4HgtBiUUd4l4_NcnYJhUjGIKmXdnogwJo0vI9Y23Tg/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-folder-open"></i></div><span class="label">Controle de CDs</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbxJAjJJwiN7NQyZ_fexJiyv74qb_QtgNhRfxzhWcahhXIgHvGS8ywNlprwBjZRJcQVuvA/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-stopwatch"></i></div><span class="label">Pomodoro</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbxDorJDumBuLnPJu117NV4TUz7gXgcYZqceBnUrqeP3rb3vfHFybPIhamj6huC95OfiBg/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-boxes"></i></div><span class="label">Controle CDs O&G</span>
+        </a>
+        <a href="https://script.google.com/macros/s/AKfycbz99JufiMxK-Y_3sUVJhdvRCFxvA9AlI-5fMRab-XMRvG_-LA2_NxD1jN9tyMuoBg0y/exec" target="_blank" class="btn-item">
+            <div class="circle"><i class="fas fa-gem"></i></div><span class="label">888</span>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
