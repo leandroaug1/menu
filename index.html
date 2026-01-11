@@ -2,7 +2,16 @@
 <html>
 <head>
     <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Menu Leandro">
+    <link rel="apple-touch-icon" href="https://via.placeholder.com/180">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --bg-body: #f4f7fa;
@@ -16,14 +25,16 @@
             font-family: -apple-system, system-ui, sans-serif;
             background-color: var(--bg-body);
             margin: 0;
-            padding: 20px;
+            padding: 20px; /* Será ajustado no media query abaixo para telemóveis */
             color: var(--primary-blue);
             display: flex;
             justify-content: center;
+            /* Previne o efeito elástico no iOS ao rolar além do limite */
+            overscroll-behavior-y: none; 
         }
 
-        .container { width: 100%; max-width: 500px; }
-        .header { font-size: 24px; margin-bottom: 25px; text-align: center; }
+        .container { width: 100%; max-width: 500px; padding-bottom: 40px; }
+        .header { font-size: 24px; margin-bottom: 25px; text-align: center; margin-top: 10px; }
 
         .info-card {
             background: var(--white);
@@ -60,6 +71,8 @@
             flex-direction: column;
             align-items: center;
             transition: transform 0.2s;
+            /* Remove a cor azul padrão de links clicados no iOS */
+            -webkit-tap-highlight-color: transparent; 
         }
 
         .circle {
@@ -82,6 +95,27 @@
             color: var(--primary-blue);
             line-height: 1.2;
             text-align: center;
+        }
+
+        /* --- AJUSTES PARA TELEMÓVEL (iPhone) --- */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px; /* Reduz margens externas */
+            }
+            
+            .menu-grid {
+                /* Muda para 3 colunas se o ecrã for muito estreito, ou mantém 4 ajustando o gap */
+                gap: 20px 5px; 
+                padding: 25px 10px;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            .temp-val {
+                font-size: 32px; /* Reduz ligeiramente a fonte da temperatura */
+            }
         }
     </style>
 </head>
@@ -108,7 +142,7 @@
         <a href="https://script.google.com/macros/s/AKfycbz0MkBoAOphZwLYIJ2zx9XpjLWSnWfA9mMAuvKC-ihIq1L00O_WyQW7eqmmo-ZNJNX9FQ/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-bullseye"></i></div><span class="label">Metas Financ.</span>
         </a>
-        <a href="https://leandroaug1.github.io/agenda/" target="_blank" class="btn-item">
+        <a href="https://script.google.com/macros/s/AKfycbwwIZj45K9sU-PkidE89gtdy3HwK08biEHdjY19GBuM5_XAwlTSFwsI9_qTme1egSk7/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-calendar-alt"></i></div><span class="label">Agenda</span>
         </a>
         <a href="https://leandroaug1.github.io/ct70/" target="_blank" class="btn-item">
@@ -138,13 +172,13 @@
         <a href="https://script.google.com/macros/s/AKfycbyUJIOqMVZ88it4KnGXwf7JtJAMXLz30TR2qGHrpnxMseENmhUO7j9FzBq4BscSaD_BCg/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-tachometer-alt"></i></div><span class="label">Indicador CT70</span>
         </a>
-        <a href="https://leandroaug1.github.io/look/" target="_blank" class="btn-item">
+        <a href="https://script.google.com/macros/s/AKfycbw-M8DKCPjeUlIHe5_tsPnBjT7cNuy3iTWYYZ1IuXM250iT0CL7GlhtklfCrXEq7X54Jg/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-tshirt"></i></div><span class="label">Looks</span>
         </a>
         <a href="https://script.google.com/macros/s/AKfycbwRl321x3GbA01xv89Dn2GcAO6hB5xOKnu24E-oxippwoU_3FLGhKpjcgAXO1tnRR4o/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-home"></i></div><span class="label">Casa</span>
         </a>
-        <a href="https://leandroaug1.github.io/cds/" target="_blank" class="btn-item">
+        <a href="https://script.google.com/macros/s/AKfycbzJqbc9_QW9vjxH2RHW-ZEdpOv_4HgtBiUUd4l4_NcnYJhUjGIKmXdnogwJo0vI9Y23Tg/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-folder-open"></i></div><span class="label">Controle de CDs</span>
         </a>
         <a href="https://script.google.com/macros/s/AKfycbxJAjJJwiN7NQyZ_fexJiyv74qb_QtgNhRfxzhWcahhXIgHvGS8ywNlprwBjZRJcQVuvA/exec" target="_blank" class="btn-item">
@@ -153,7 +187,7 @@
         <a href="https://script.google.com/macros/s/AKfycbxDorJDumBuLnPJu117NV4TUz7gXgcYZqceBnUrqeP3rb3vfHFybPIhamj6huC95OfiBg/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-boxes"></i></div><span class="label">Controle CDs O&G</span>
         </a>
-        <a href="https://leandroaug1.github.io/888/" target="_blank" class="btn-item">
+        <a href="https://script.google.com/macros/s/AKfycbz99JufiMxK-Y_3sUVJhdvRCFxvA9AlI-5fMRab-XMRvG_-LA2_NxD1jN9tyMuoBg0y/exec" target="_blank" class="btn-item">
             <div class="circle"><i class="fas fa-gem"></i></div><span class="label">888</span>
         </a>
         <a href="https://leandroaug1.github.io/risco/" target="_blank" class="btn-item">
